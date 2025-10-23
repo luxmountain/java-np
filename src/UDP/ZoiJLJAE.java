@@ -8,7 +8,6 @@ public class ZoiJLJAE {
     public static void main(String[] args) {
         DatagramSocket socket = null;
         try {
-            // Create UDP socket
             socket = new DatagramSocket();
             InetAddress serverAddress = InetAddress.getByName("203.162.10.109");
             int serverPort = 2208;
