@@ -1,7 +1,9 @@
 package UDP;
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
+    @Serial
     private static final long serialVersionUID = 20261107L;
     private String id;
     private String name;
