@@ -3,6 +3,7 @@ package UDP;
 import java.io.*;
 import java.net.*;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class uCuJjN3V {
@@ -21,7 +22,7 @@ public class uCuJjN3V {
 
     private static String convertDate(String date) {
         try {
-            java.util.Date d = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+            Date d = new SimpleDateFormat("yyyy-MM-dd").parse(date);
             return new SimpleDateFormat("dd/MM/yyyy").format(d);
         } catch (Exception e) {
             return date;
@@ -48,7 +49,6 @@ public class uCuJjN3V {
 
         byte[] requestIdBytes = new byte[8];
         System.arraycopy(receivePacket.getData(), 0, requestIdBytes, 0, 8);
-        String requestId = new String(requestIdBytes).trim();
 
         byte[] objectBytes = new byte[receivePacket.getLength() - 8];
         System.arraycopy(receivePacket.getData(), 8, objectBytes, 0, objectBytes.length);
@@ -61,14 +61,14 @@ public class uCuJjN3V {
 
         emp.setName(capitalizeWords(emp.getName()));
         String yearStr = emp.getHireDate().substring(0, 4);
+        emp.setHireDate(convertDate(emp.getHireDate()));
+
         int birthYear = Integer.parseInt(yearStr);
         int sumDigits = String.valueOf(birthYear)
                 .chars()
                 .map(Character::getNumericValue)
                 .sum();
         emp.setSalary(emp.getSalary() * (1 + sumDigits / 100.0));
-
-        emp.setHireDate(convertDate(emp.getHireDate()));
 
         System.out.println("Modified Employee: " + emp);
 
