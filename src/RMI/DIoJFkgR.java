@@ -17,13 +17,14 @@
 package RMI;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.HexFormat;
 
 public class DIoJFkgR {
     public static void main(String[] args) {
         try {
             // --- Thông tin sinh viên và mã câu hỏi ---
             String studentCode = "B22DCVT445";   // thay bằng mã sinh viên của bạn
-            String qCode = "DIoJFkgR";
+            String qCode = "wyKxYdSJ";
 
             // --- Kết nối tới RMI Registry ---
             Registry registry = LocateRegistry.getRegistry("203.162.10.109", 1099);
@@ -34,7 +35,7 @@ public class DIoJFkgR {
             System.out.println("Đã nhận " + receivedData.length + " byte từ server.");
 
             // --- b. Chuyển dữ liệu sang chuỗi hex ---
-            String hexString = bytesToHex(receivedData);
+            String hexString = HexFormat.of().formatHex(receivedData);
             System.out.println("Chuỗi hex tương ứng: " + hexString);
 
             // --- c. Gửi lại dữ liệu hex dưới dạng byte[] ---

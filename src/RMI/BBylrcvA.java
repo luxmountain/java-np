@@ -19,10 +19,7 @@ package RMI;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import RMI.CharacterService;
-
 public class BBylrcvA {
-
     // --- Hàm mã hóa Vigenère ---
     private static String vigenereEncrypt(String text, String key) {
         StringBuilder result = new StringBuilder();

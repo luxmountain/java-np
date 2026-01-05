@@ -1,7 +1,5 @@
 package RMI;
 
-import RMI.ByteService;
-
 import java.rmi.Naming;
 
 public class _2cLgxN2i {
